@@ -37,3 +37,6 @@ export RIG_NAME="<rig name>"
 ## Usage
 
 * ```./start-miner```
+
+### Credits
+Adapted from [eth-nanopool-tmux](https://github.com/gsora/eth-nanopool-tmux) but for ethermine :)
