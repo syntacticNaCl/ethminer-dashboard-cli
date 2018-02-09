@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# get environment variables
+source .secrets
+
+MINER="ethminer --farm-recheck 2000 -M -U -S us1.ethermine.org:4444 -FS us2.ethermine.org:4444 -O $ETH_ADDR.$RIG_NAME"
+
+tmux new-session -d
+tmux rename-session 'mining-session'
+
+tmux split-window 
+tmux split-window -h
+tmux split-window -t 1 -h
+
+tmux send-keys -t 1 "$MINER" enter
+tmux send-keys -t 2 'watch nvidia-smi' enter
+tmux send-keys -t 3 'htop' enter
+tmux send-keys -t 4 "python miner-dashboard.py" enter
+
+tmux resize-pane -t 3 -R 17
+tmux resize-pane -t 2 -R 11
+
+tmux attach
