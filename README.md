@@ -27,7 +27,7 @@ Simple dashboard for ethminer, ethermine and Nvidia cards, using tmux.
 ## Installation
 
 * Create ```.secrets``` file. 
-* Add the following to the .secrets file: 
+* Add the following to the .env file: 
 ```
 export ETH_ADDR="<eth address>"
 export RIG_NAME="<rig name>"
