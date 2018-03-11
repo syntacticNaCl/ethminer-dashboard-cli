@@ -19,9 +19,15 @@ startTime = time.time()
 callDelay = 180.0
 
 def convertHashrate(hashrate):
+    if hashrate is None:
+        return 0
+
     return round((hashrate /1000000), 3)
 
 def convertTime(epoch):
+    if epoch is None:
+        return 0
+
     return time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(int(epoch)))
 
 if "ETH_MINER_ADDRESS" and "ETH_MINER_WORKER" in os.environ:
